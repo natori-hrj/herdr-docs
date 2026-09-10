@@ -1,6 +1,6 @@
 id = "herdr-docs"
 name = "Herdr Docs"
-version = "0.2.0"
+version = "0.3.0"
 min_herdr_version = "0.7.5"
 description = "Read normalized documents in a calm, beautiful Herdr pane"
 platforms = ["linux", "macos"]
