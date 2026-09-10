@@ -54,6 +54,13 @@ Herdr server after editing the config:
 herdr server reload-config
 ```
 
+Keybindings belong to the Herdr host configuration, not to the plugin package.
+Repeat this configuration on each machine or remote Herdr server where you
+want to use the shortcut. When using `herdr --remote`, install the plugin and
+add the binding on the remote host, then attach with
+`--remote-keybindings server`; local custom command bindings are not forwarded
+to the remote server.
+
 To open one specific document:
 
 ```sh
