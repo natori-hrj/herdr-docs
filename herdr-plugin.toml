@@ -1,12 +1,18 @@
 id = "herdr-docs"
 name = "Herdr Docs"
-version = "0.1.1"
-min_herdr_version = "0.7.0"
+version = "0.2.0"
+min_herdr_version = "0.7.5"
 description = "Read normalized documents in a calm, beautiful Herdr pane"
 platforms = ["linux", "macos"]
 
 [[build]]
 command = ["cargo", "build", "--release"]
+
+# Herdr does not put keybindings in the plugin manifest. This first-run hook mirrors
+# herdr-lazy: it adds the reader action to the host config once, without overwriting conflicts.
+[[startup]]
+platforms = ["linux", "macos"]
+command = ["./target/release/herdr-docs", "startup"]
 
 [[actions]]
 id = "open"

@@ -36,7 +36,7 @@ When no document is specified, the file browser opens beside the preview with
 the current directory selected, so you can use `j`/`k` and Enter to choose a
 different document. Entering a directory navigates into it.
 
-To bind it to a key, add this to Herdr's config:
+The first Herdr start after installation automatically adds this binding to the host config:
 
 ```toml
 [[keys.command]]
@@ -54,12 +54,16 @@ Herdr server after editing the config:
 herdr server reload-config
 ```
 
+The startup hook does not overwrite an existing binding and keeps a backup as
+`config.toml.herdr-docs-backup`. To disable this one-time setup, set
+`HERDR_DOCS_NO_BOOTSTRAP=1` before starting Herdr. If `prefix+d` is already in
+use, choose another key and add the same action block manually.
+
 Keybindings belong to the Herdr host configuration, not to the plugin package.
-Repeat this configuration on each machine or remote Herdr server where you
-want to use the shortcut. When using `herdr --remote`, install the plugin and
-add the binding on the remote host, then attach with
-`--remote-keybindings server`; local custom command bindings are not forwarded
-to the remote server.
+The startup hook runs independently on each machine or remote Herdr server
+after that environment installs the plugin. When using `herdr --remote`, install
+the plugin on the remote host, then attach with `--remote-keybindings server`;
+local custom command bindings are not forwarded to the remote server.
 
 To open one specific document:
 

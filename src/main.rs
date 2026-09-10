@@ -1,4 +1,5 @@
 mod document;
+mod setup;
 mod ui;
 
 use std::env;
@@ -16,6 +17,7 @@ fn run() -> Result<(), String> {
     let command = args.next().unwrap_or_else(|| "reader".to_string());
 
     match command.as_str() {
+        "startup" => setup::run_startup(),
         "reader" | "open" => {
             let path = args.next().map(PathBuf::from);
             if args.next().is_some() {
@@ -60,6 +62,7 @@ fn print_help() {
         "herdr-docs — a normalized document reader for Herdr",
         "",
         "Usage:",
+        "  herdr-docs startup       Configure the Herdr keybinding after install",
         "  herdr-docs reader [PATH]  Open the TUI reader",
         "  herdr-docs context PATH   Print normalized document context",
         "  herdr-docs doctor         Show available document converters",
