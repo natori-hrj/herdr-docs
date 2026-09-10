@@ -36,7 +36,8 @@ When no document is specified, the file browser opens beside the preview with
 the current directory selected, so you can use `j`/`k` and Enter to choose a
 different document. Entering a directory navigates into it.
 
-The first Herdr start after installation automatically adds this binding to the host config:
+The GitHub install build automatically adds this binding to the host config. The first Herdr
+start after installation also retries the setup if the server was unavailable during the build:
 
 ```toml
 [[keys.command]]
@@ -54,7 +55,7 @@ Herdr server after editing the config:
 herdr server reload-config
 ```
 
-The startup hook does not overwrite an existing binding and keeps a backup as
+The setup does not overwrite an existing binding and keeps a backup as
 `config.toml.herdr-docs-backup`. To disable this one-time setup, set
 `HERDR_DOCS_NO_BOOTSTRAP=1` before starting Herdr. If `prefix+d` is already in
 use, choose another key and add the same action block manually.
