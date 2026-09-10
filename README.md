@@ -43,6 +43,14 @@ command = "herdr-docs.open"
 description = "open document reader"
 ```
 
+With Herdr's default prefix, press `Ctrl+B`, release it, then press `D`.
+If you changed Herdr's prefix, use that prefix instead. Reload the running
+Herdr server after editing the config:
+
+```sh
+herdr server reload-config
+```
+
 To open one specific document:
 
 ```sh
