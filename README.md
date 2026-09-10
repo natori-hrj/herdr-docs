@@ -32,6 +32,9 @@ herdr plugin pane open --plugin herdr-docs --entrypoint reader --focus
 
 The plugin opens in the current Herdr workspace. It prefers `README.md` when
 one exists, then the first readable document in the workspace directory.
+When no document is specified, the file browser opens beside the preview with
+the current directory selected, so you can use `j`/`k` and Enter to choose a
+different document. Entering a directory navigates into it.
 
 To bind it to a key, add this to Herdr's config:
 

@@ -117,13 +117,16 @@ impl ReaderApp {
         };
         app.refresh_entries();
 
-        if let Some(path) = initial_path.or_else(env_document_path) {
+        let explicit_path = initial_path.or_else(env_document_path);
+        let has_explicit_path = explicit_path.is_some();
+
+        if let Some(path) = explicit_path {
             app.open_path(&path);
         } else if let Some(path) = app.preferred_document() {
             app.open_path(&path);
         }
 
-        if app.document.is_none() {
+        if app.document.is_none() || !has_explicit_path {
             app.show_browser = true;
             app.focus = Focus::Browser;
         }
